@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: tourist-safety-system
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tourist_safety
+    username: himanshugarg
+    password:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8080
+app:
+  jwt:
+    secret: tourist-safety-secret-key-minimum-256-bits-long
+    expiration: 86400000
+  ai:
+    inactivity-threshold-minutes: 30
