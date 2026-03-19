@@ -1,11 +1,15 @@
 #!/bin/bash
 
-git pull origin main --rebase
-
+# Step 1: Add & commit changes first
 if [[ -n $(git status -s) ]]; then
   git add .
   git commit -m "Auto sync: $(date)"
-  git push
 else
-  echo "No changes to sync"
+  echo "No changes to commit"
 fi
+
+# Step 2: Pull latest changes safely
+git pull origin main --rebase
+
+# Step 3: Push to GitHub
+git push
